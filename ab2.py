@@ -58,7 +58,7 @@ def run():
         return
 
     st.sidebar.subheader("Reference Configuration")
-    T0 = st.sidebar.number_input("Reference Temperature (°C):",25.0,35.0, value=30.0, format=f"%.{decimals}f")
+    T0 = st.sidebar.number_input("Operating Temperature (°C):",25.0,35.0, value=30.0, format=f"%.{decimals}f")
 
     # Fixed poling period
     Λ_fixed = 3.425
@@ -97,17 +97,6 @@ def run():
     )
 
     st.plotly_chart(fig, use_container_width=True)
-
-    # # Single-Temperature Output
-    # st.subheader("Single-Temperature Analysis")
-    # T_set = st.number_input("Select temperature (°C):", min_value=float(T_min), max_value=float(T_max), value=(T_min+T_max)/2, format=f"%.{decimals}f")
-    # if st.button("Compute λs & λi"):
-    #     try:
-    #         li = solve_w1_for_period_newton(Λ_fixed, lambda_p, T_set)
-    #         ls = 1/(1/lambda_p - 1/li)
-    #         st.success(f"At T={T_set:.{decimals}f}°C → λi={li:.{decimals}f} µm, λs={ls:.{decimals}f} µm")
-    #     except Exception as e:
-    #         st.error(f"Calculation failed: {str(e)}")
 
 # Run app
 if __name__ == "__main__":
