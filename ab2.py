@@ -57,8 +57,8 @@ def run():
         st.sidebar.error("Max temperature must exceed min temperature.")
         return
 
-    st.sidebar.subheader("Reference Configuration")
-    T0 = st.sidebar.number_input("Operating Temperature (°C):",25.0,35.0, value=30.0, format=f"%.{decimals}f")
+    st.sidebar.subheader("Operating Configuration")
+    T0 = st.sidebar.number_input("Operating Temperature (°C):",25.0,value=35.0, format=f"%.{decimals}f")
 
     # Fixed poling period
     Λ_fixed = 3.425
